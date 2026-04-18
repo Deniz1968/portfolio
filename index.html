@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deniz Çetin - Rönesans Eğitimcisi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Uncial+Antiqua&family=MedievalSharp&family=Almendra+Display&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Uncial Antiqua', cursive;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120,119,198,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120,219,255,0.3) 0%, transparent 50%),
+                linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23eee"/><circle cx="75" cy="75" r="1.5" fill="%23ddd"/><circle cx="50" cy="10" r="0.8" fill="%23f5f5f5"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            opacity: 0.5;
+            z-index: -1;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+        
+        header {
+            background: linear-gradient(145deg, #fdf6e3, #f4e4bc);
+            border: 8px solid #d4af37;
+            border-radius: 25px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 
+                inset 0 0 50px rgba(212,175,55,0.3),
+                0 25px 50px rgba(0,0,0,0.3);
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; right: -50%; bottom: -50%;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+            animation: glow 6s ease-in-out infinite alternate;
+        }
+        @keyframes glow { 0% { opacity: 0.5; } 100% { opacity: 1; } }
+        
+        h1 { 
+            font-family: 'Almendra Display', cursive;
+            font-size: 4.5em; 
+            background: linear-gradient(45deg, #b8860b, #d4af37, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
+            margin-bottom: 15px;
+            letter-spacing: 5px;
+        }
+        .subtitle { 
+            font-family: 'Cinzel', serif;
+            font-size: 1.8em; 
+            color: #8b4513; 
+            font-weight: 400;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            background: linear-gradient(145deg, #fef9e7, #f0e6d2);
+            border: 4px solid #deb887;
+            margin: 40px 0;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 
+                0 20px 40px rgba(0,0,0,0.2),
+                inset 0 0 30px rgba(255,255,255,0.6);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        .section::before {
+            content: '🪶';
+            position: absolute;
+            top: -20px; left: 30px;
+            font-size: 2em;
+            background: #fef9e7;
+            padding: 10px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+            border-color: #d4af37;
+        }
+        
+        h2 { 
+            font-family: 'MedievalSharp', cursive;
+            font-size: 3em; 
+            color: #8b4513; 
+            margin-bottom: 30px; 
+            text-align: center;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+            position: relative;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 120px;
+            height: 6px;
+            background: linear-gradient(90deg, #d4af37, #ffd700);
+            margin: 15px auto;
+            border-radius: 3px;
+            box-shadow: 0 2px 10px rgba(212,175,55,0.5);
+        }
+        
+        .bio-text {
+            font-size: 1.4em;
+            line-height: 1.8;
+            color: #5d4037;
+            text-align: justify;
+            font-family: 'Cinzel', serif;
+        }
+        .highlight { 
+            background: linear-gradient(145deg, #fff8dc, #f5e6b2);
+            border-left: 8px solid #d4af37;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 0 15px 15px 0;
+            font-weight: 600;
+            box-shadow: inset 0 0 20px rgba(212,175,55,0.2);
+        }
+        
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .skill-item {
+            background: linear-gradient(145deg, #fef5e7, #f8e8d2);
+            border: 3px solid #daa520;
+            padding: 40px 25px;
+            border-radius: 18px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .skill-item::before {
+            content: '✒️';
+            position: absolute;
+            top: -15px; left: 50%;
+            transform: translateX(-50%);
+            background: #fef9e7;
+            padding: 8px;
+            border-radius: 50%;
+            font-size: 1.5em;
+        }
+        .skill-item:hover {
+            transform: scale(1.05);
+            border-color: #d4af37;
+            box-shadow: 0 20px 40px rgba(212,175,55,0.3);
+        }
+        .skill-icon { 
+            font-size: 4em; 
+            margin-bottom: 20px; 
+            display: block;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        .skill-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6em;
+            color: #8b4513;
+            margin-bottom: 10px;
+        }
+        
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .link-btn {
+            background: linear-gradient(145deg, #d4af37, #ffd700);
+            color: #5d4037;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Cinzel', serif;
+            font-size: 1.3em;
+            font-weight: 600;
+            transition: all 0.4s;
+            box-shadow: 
+                0 15px 30px rgba(212,175,55,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.6);
+            border: 3px solid #b8860b;
+            position: relative;
+            overflow: hidden;
+        }
+        .link-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        .link-btn:hover::before { left: 100%; }
+        .link-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(212,175,55,0.6);
+            color: #4a2c0b;
+        }
+        
+        .quote {
+            text-align: center;
+            margin-top: 40px;
+            font-style: italic;
+            font-size: 1.5em;
+            color: #8b4513;
+            font-family: 'Cinzel', serif;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            padding: 30px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 15px;
+            border-right: 6px solid #d4af37;
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 3em; }
+            .container { padding: 20px 10px; }
+            .section { padding: 30px 20px; margin: 20px 0; }
+            .skills { grid-template-columns: 1fr; }
+            .links { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Deniz Çetin</h1>
+            <p class="subtitle">Eğitim Âlimi • Teknoloji Hâkimi • Bilgi Âşığı</p>
+        </header>
+
+        <div class="section">
+            <h2>🧙‍♂️ Hayat Defteri</h2>
+            <div class="highlight">
+                1968 senesinde Şereflikoçhisar'ın bereketli topraklarında dünyaya geldim. 
+                İlk ve orta tahsilimi burada ikmal ettikten sonra, 
+                <strong>Hacettepe Üniversitesi</strong>'nin nurundan istifade ile yüksek ilmi ikmal eyledim.
+            </div>
+            <p class="bio-text">
+                1987'den beridir <strong>muallimlik</strong> sanatını icra etmekteyim. 
+                <strong>İstanbul Üniversitesi</strong>'nde Siyaset Bilimi ve Kamu Yönetimi ilimlerini tahsil ediyorum.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>⚔️ İlim Silahlarım</h2>
+            <div class="skills">
+                <div class="skill-item">
+                    <span class="skill-icon">⚡</span>
+                    <div class="skill-title">JavaScript</div>
+                    <p>Web âleminin sihirbazı</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🐍</span>
+                    <div class="skill-title">Python</div>
+                    <p>Veri ejderhasını evcilleştiren</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">📜</span>
+                    <div class="skill-title">Eğitim</div>
+                    <p>30+ yıllık muallimlik tecrübesi</p>
+                </div>
+                <div class="skill-item">
+                    <span class="skill-icon">🎙️</span>
+                    <div class="skill-title">İçerik Üretimi</div>
+                    <p>Podcast & Web müellifi</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏰 İlim Kapıları</h2>
+            <div class="links">
+                <a href="https://www.baskentekrani.com.tr" target="_blank" class="link-btn">
+                    🏛️ Başkent Ekranı Medresesi
+                </a>
+                <a href="#" target="_blank" class="link-btn">
+                    📺 YouTube İlimhanesi
+                </a>
+                <a href="#" target="_blank" class="link-btn">
+                    💾 GitHub Kodeksi
+                </a>
+            </div>
+            <div class="quote">
+                "Bilim ve teknolojiyi eğitimle birleştirerek insanlığa hizmet etmek, 
+                asıl gayemizdir."
+            </div>
+        </div>
+    </div>
+</body>
+</html>
