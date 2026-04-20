@@ -1,310 +1,609 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
+
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deniz Çetin - Rönesans Eğitimcisi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Uncial+Antiqua&family=MedievalSharp&family=Almendra+Display&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Uncial Antiqua', cursive;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(120,119,198,0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120,219,255,0.3) 0%, transparent 50%),
-                linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: 
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23eee"/><circle cx="75" cy="75" r="1.5" fill="%23ddd"/><circle cx="50" cy="10" r="0.8" fill="%23f5f5f5"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
-            opacity: 0.5;
-            z-index: -1;
-        }
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-        
-        header {
-            background: linear-gradient(145deg, #fdf6e3, #f4e4bc);
-            border: 8px solid #d4af37;
-            border-radius: 25px;
-            padding: 60px 40px;
-            text-align: center;
-            box-shadow: 
-                inset 0 0 50px rgba(212,175,55,0.3),
-                0 25px 50px rgba(0,0,0,0.3);
-            margin-bottom: 60px;
-            position: relative;
-            overflow: hidden;
-        }
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; right: -50%; bottom: -50%;
-            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
-            animation: glow 6s ease-in-out infinite alternate;
-        }
-        @keyframes glow { 0% { opacity: 0.5; } 100% { opacity: 1; } }
-        
-        h1 { 
-            font-family: 'Almendra Display', cursive;
-            font-size: 4.5em; 
-            background: linear-gradient(45deg, #b8860b, #d4af37, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 3px 3px 10px rgba(0,0,0,0.5);
-            margin-bottom: 15px;
-            letter-spacing: 5px;
-        }
-        .subtitle { 
-            font-family: 'Cinzel', serif;
-            font-size: 1.8em; 
-            color: #8b4513; 
-            font-weight: 400;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .section {
-            background: linear-gradient(145deg, #fef9e7, #f0e6d2);
-            border: 4px solid #deb887;
-            margin: 40px 0;
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 
-                0 20px 40px rgba(0,0,0,0.2),
-                inset 0 0 30px rgba(255,255,255,0.6);
-            position: relative;
-            transition: all 0.4s ease;
-        }
-        .section::before {
-            content: '🪶';
-            position: absolute;
-            top: -20px; left: 30px;
-            font-size: 2em;
-            background: #fef9e7;
-            padding: 10px;
-            border-radius: 50%;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .section:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
-            border-color: #d4af37;
-        }
-        
-        h2 { 
-            font-family: 'MedievalSharp', cursive;
-            font-size: 3em; 
-            color: #8b4513; 
-            margin-bottom: 30px; 
-            text-align: center;
-            text-shadow: 3px 3px 8px rgba(0,0,0,0.4);
-            position: relative;
-        }
-        h2::after {
-            content: '';
-            display: block;
-            width: 120px;
-            height: 6px;
-            background: linear-gradient(90deg, #d4af37, #ffd700);
-            margin: 15px auto;
-            border-radius: 3px;
-            box-shadow: 0 2px 10px rgba(212,175,55,0.5);
-        }
-        
-        .bio-text {
-            font-size: 1.4em;
-            line-height: 1.8;
-            color: #5d4037;
-            text-align: justify;
-            font-family: 'Cinzel', serif;
-        }
-        .highlight { 
-            background: linear-gradient(145deg, #fff8dc, #f5e6b2);
-            border-left: 8px solid #d4af37;
-            padding: 30px;
-            margin: 30px 0;
-            border-radius: 0 15px 15px 0;
-            font-weight: 600;
-            box-shadow: inset 0 0 20px rgba(212,175,55,0.2);
-        }
-        
-        .skills {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        .skill-item {
-            background: linear-gradient(145deg, #fef5e7, #f8e8d2);
-            border: 3px solid #daa520;
-            padding: 40px 25px;
-            border-radius: 18px;
-            text-align: center;
-            position: relative;
-            transition: all 0.3s;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-        .skill-item::before {
-            content: '✒️';
-            position: absolute;
-            top: -15px; left: 50%;
-            transform: translateX(-50%);
-            background: #fef9e7;
-            padding: 8px;
-            border-radius: 50%;
-            font-size: 1.5em;
-        }
-        .skill-item:hover {
-            transform: scale(1.05);
-            border-color: #d4af37;
-            box-shadow: 0 20px 40px rgba(212,175,55,0.3);
-        }
-        .skill-icon { 
-            font-size: 4em; 
-            margin-bottom: 20px; 
-            display: block;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-        }
-        .skill-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.6em;
-            color: #8b4513;
-            margin-bottom: 10px;
-        }
-        
-        .links {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-        .link-btn {
-            background: linear-gradient(145deg, #d4af37, #ffd700);
-            color: #5d4037;
-            padding: 20px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-family: 'Cinzel', serif;
-            font-size: 1.3em;
-            font-weight: 600;
-            transition: all 0.4s;
-            box-shadow: 
-                0 15px 30px rgba(212,175,55,0.4),
-                inset 0 1px 0 rgba(255,255,255,0.6);
-            border: 3px solid #b8860b;
-            position: relative;
-            overflow: hidden;
-        }
-        .link-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s;
-        }
-        .link-btn:hover::before { left: 100%; }
-        .link-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(212,175,55,0.6);
-            color: #4a2c0b;
-        }
-        
-        .quote {
-            text-align: center;
-            margin-top: 40px;
-            font-style: italic;
-            font-size: 1.5em;
-            color: #8b4513;
-            font-family: 'Cinzel', serif;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-            padding: 30px;
-            background: rgba(255,255,255,0.5);
-            border-radius: 15px;
-            border-right: 6px solid #d4af37;
-        }
-        
-        @media (max-width: 768px) {
-            h1 { font-size: 3em; }
-            .container { padding: 20px 10px; }
-            .section { padding: 30px 20px; margin: 20px 0; }
-            .skills { grid-template-columns: 1fr; }
-            .links { flex-direction: column; align-items: center; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deniz Çetin — Eğitimci & İçerik Üreticisi</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+–ink: #0e0e0e;
+–cream: #f4f9ee;
+–gold: #d4c400;
+–rust: #2e7d32;
+–sage: #558b2f;
+–muted: #607060;
+–card-bg: #f0f7ec;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+font-family: ‘DM Sans’, sans-serif;
+background: var(–cream);
+color: var(–ink);
+overflow-x: hidden;
+}
+
+/* ── CURSOR ── */
+
+- { cursor: none !important; }
+  #cursor {
+  width: 10px; height: 10px;
+  background: var(–rust);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: transform 0.1s, width 0.25s, height 0.25s, background 0.25s;
+  }
+  #cursor.big { width: 40px; height: 40px; background: rgba(212,196,0,0.35); }
+
+/* ── NOISE OVERLAY ── */
+body::before {
+content: ‘’;
+position: fixed; inset: 0;
+background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 200 200’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘n’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.75’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23n)’ opacity=‘0.04’/%3E%3C/svg%3E”);
+pointer-events: none; z-index: 1; opacity: 0.6;
+}
+
+/* ── NAV ── */
+nav {
+position: fixed; top: 0; width: 100%; z-index: 100;
+display: flex; justify-content: space-between; align-items: center;
+padding: 1.4rem 4rem;
+background: rgba(245,240,232,0.82);
+backdrop-filter: blur(14px);
+border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+.nav-logo {
+font-family: ‘Playfair Display’, serif;
+font-size: 1.35rem; font-weight: 700;
+letter-spacing: 0.02em;
+}
+.nav-logo span { color: var(–rust); }
+.nav-links { display: flex; gap: 2.4rem; }
+.nav-links a {
+text-decoration: none; color: var(–ink);
+font-size: 0.82rem; font-weight: 500;
+letter-spacing: 0.1em; text-transform: uppercase;
+position: relative; padding-bottom: 2px;
+}
+.nav-links a::after {
+content: ‘’; position: absolute; bottom: 0; left: 0;
+width: 0; height: 1.5px; background: var(–gold);
+transition: width 0.3s ease;
+}
+.nav-links a:hover::after { width: 100%; }
+
+/* ── HERO ── */
+#hero {
+min-height: 100vh;
+display: grid; grid-template-columns: 1fr 1fr;
+position: relative; overflow: hidden;
+}
+.hero-left {
+display: flex; flex-direction: column; justify-content: center;
+padding: 8rem 4rem 4rem 4rem;
+position: relative; z-index: 2;
+}
+.hero-eyebrow {
+font-size: 0.75rem; font-weight: 500;
+letter-spacing: 0.2em; text-transform: uppercase;
+color: var(–rust); margin-bottom: 1.2rem;
+opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+}
+.hero-name {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(3rem, 6vw, 5.5rem);
+font-weight: 900; line-height: 1.02;
+letter-spacing: -0.02em;
+opacity: 0; animation: fadeUp 0.9s 0.4s forwards;
+}
+.hero-name em { font-style: italic; color: var(–rust); }
+.hero-tagline {
+font-size: 1.05rem; line-height: 1.7;
+color: var(–muted); margin-top: 1.6rem; max-width: 420px;
+opacity: 0; animation: fadeUp 0.9s 0.6s forwards;
+}
+.hero-actions {
+display: flex; gap: 1rem; margin-top: 2.4rem;
+opacity: 0; animation: fadeUp 0.9s 0.8s forwards;
+}
+.btn-primary {
+background: var(–ink); color: var(–cream);
+padding: 0.85rem 2rem; border: none;
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.82rem; font-weight: 500;
+letter-spacing: 0.08em; text-transform: uppercase;
+text-decoration: none; display: inline-block;
+transition: background 0.25s, transform 0.2s;
+}
+.btn-primary:hover { background: var(–rust); transform: translateY(-2px); }
+.btn-outline {
+background: transparent; color: var(–ink);
+padding: 0.85rem 2rem; border: 1.5px solid var(–ink);
+font-family: ‘DM Sans’, sans-serif;
+font-size: 0.82rem; font-weight: 500;
+letter-spacing: 0.08em; text-transform: uppercase;
+text-decoration: none; display: inline-block;
+transition: border-color 0.25s, color 0.25s, transform 0.2s;
+}
+.btn-outline:hover { border-color: var(–gold); color: var(–gold); transform: translateY(-2px); }
+
+.hero-right {
+position: relative; overflow: hidden;
+opacity: 0; animation: fadeIn 1.2s 0.5s forwards;
+}
+.hero-bg-pattern {
+position: absolute; inset: 0;
+background:
+repeating-linear-gradient(45deg, transparent, transparent 30px, rgba(201,168,76,0.07) 30px, rgba(201,168,76,0.07) 31px),
+repeating-linear-gradient(-45deg, transparent, transparent 30px, rgba(201,168,76,0.07) 30px, rgba(201,168,76,0.07) 31px);
+}
+.hero-badge {
+position: absolute; top: 50%; left: 50%;
+transform: translate(-50%,-50%);
+width: 340px; height: 340px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(–gold) 0%, var(–rust) 100%);
+display: flex; flex-direction: column;
+align-items: center; justify-content: center;
+text-align: center; color: white;
+box-shadow: 0 30px 80px rgba(184,76,46,0.35);
+animation: float 6s ease-in-out infinite;
+}
+.hero-badge-year { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.8; }
+.hero-badge-num { font-family: ‘Playfair Display’, serif; font-size: 5rem; font-weight: 900; line-height: 1; }
+.hero-badge-label { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.9; }
+
+/* ── STATS STRIP ── */
+#stats {
+background: var(–ink); color: var(–cream);
+display: flex; justify-content: space-around; align-items: center;
+padding: 2.5rem 4rem; position: relative; z-index: 2;
+}
+.stat-item { text-align: center; }
+.stat-num {
+font-family: ‘Playfair Display’, serif;
+font-size: 2.8rem; font-weight: 700; color: var(–gold);
+}
+.stat-label { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.6; margin-top: 0.3rem; }
+.stat-divider { width: 1px; height: 60px; background: rgba(255,255,255,0.15); }
+
+/* ── SECTION COMMON ── */
+section { padding: 7rem 4rem; position: relative; z-index: 2; }
+.section-label {
+font-size: 0.7rem; font-weight: 500;
+letter-spacing: 0.25em; text-transform: uppercase;
+color: var(–gold); margin-bottom: 0.8rem;
+}
+.section-title {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(2rem, 4vw, 3.2rem);
+font-weight: 700; line-height: 1.15;
+max-width: 600px;
+}
+.section-title em { font-style: italic; color: var(–rust); }
+
+/* ── ABOUT ── */
+#about {
+display: grid; grid-template-columns: 1fr 1.4fr; gap: 6rem; align-items: center;
+background: var(–card-bg);
+border-top: 1px solid rgba(201,168,76,0.2);
+border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+.about-text { font-size: 1rem; line-height: 1.85; color: #3a3530; margin-top: 1.5rem; }
+.about-text p + p { margin-top: 1rem; }
+.about-highlights { display: flex; flex-direction: column; gap: 1.5rem; }
+.highlight-card {
+background: white;
+border-left: 3px solid var(–gold);
+padding: 1.4rem 1.6rem;
+box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+transition: transform 0.3s, box-shadow 0.3s;
+}
+.highlight-card:hover { transform: translateX(6px); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+.highlight-card h4 { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(–rust); margin-bottom: 0.4rem; }
+.highlight-card p { font-size: 0.92rem; line-height: 1.6; color: var(–ink); }
+
+/* ── EXPERTISE ── */
+#expertise { text-align: center; }
+#expertise .section-title { margin: 0 auto 3.5rem; }
+.expertise-grid {
+display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem;
+}
+.exp-card {
+background: white; padding: 2.4rem 2rem;
+border: 1px solid rgba(201,168,76,0.15);
+position: relative; overflow: hidden;
+transition: transform 0.3s, box-shadow 0.3s;
+text-align: left;
+}
+.exp-card::before {
+content: ‘’; position: absolute; top: 0; left: 0;
+width: 100%; height: 3px;
+background: linear-gradient(90deg, var(–gold), var(–rust));
+transform: scaleX(0); transform-origin: left;
+transition: transform 0.4s ease;
+}
+.exp-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+.exp-card:hover::before { transform: scaleX(1); }
+.exp-icon { font-size: 2rem; margin-bottom: 1rem; }
+.exp-card h3 { font-family: ‘Playfair Display’, serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.6rem; }
+.exp-card p { font-size: 0.9rem; line-height: 1.7; color: var(–muted); }
+
+/* ── LANGUAGES ── */
+#languages { background: var(–card-bg); }
+.lang-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.lang-card {
+background: white; padding: 1.8rem 1.5rem; text-align: center;
+border: 1px solid rgba(201,168,76,0.15);
+transition: transform 0.3s;
+}
+.lang-card:hover { transform: translateY(-4px); }
+.lang-flag { font-size: 2.5rem; margin-bottom: 0.8rem; }
+.lang-name { font-family: ‘Playfair Display’, serif; font-size: 1.1rem; font-weight: 700; }
+.lang-level {
+display: inline-block; margin-top: 0.6rem;
+padding: 0.2rem 0.8rem; font-size: 0.7rem;
+letter-spacing: 0.12em; text-transform: uppercase;
+background: var(–gold); color: white;
+}
+.lang-level.native { background: var(–rust); }
+.lang-level.b2 { background: var(–sage); }
+
+/* ── MEDIA ── */
+#media { text-align: center; }
+.media-cards {
+display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem;
+}
+.media-card {
+position: relative; overflow: hidden;
+background: var(–ink); color: white;
+padding: 3rem 2rem; text-align: center;
+transition: transform 0.3s;
+}
+.media-card:hover { transform: scale(1.03); }
+.media-card-bg {
+position: absolute; inset: 0; opacity: 0.12;
+background: repeating-linear-gradient(45deg, var(–gold) 0, var(–gold) 1px, transparent 0, transparent 50%);
+background-size: 12px 12px;
+}
+.media-card-icon { font-size: 3rem; margin-bottom: 1rem; position: relative; }
+.media-card h3 { font-family: ‘Playfair Display’, serif; font-size: 1.3rem; margin-bottom: 0.6rem; position: relative; }
+.media-card p { font-size: 0.88rem; opacity: 0.7; line-height: 1.6; position: relative; }
+.media-card a {
+display: inline-block; margin-top: 1.4rem;
+padding: 0.6rem 1.5rem; border: 1px solid var(–gold);
+color: var(–gold); text-decoration: none;
+font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+position: relative; transition: background 0.25s, color 0.25s;
+}
+.media-card a:hover { background: var(–gold); color: var(–ink); }
+
+/* ── CONTACT ── */
+#contact {
+background: var(–ink); color: var(–cream);
+text-align: center;
+}
+#contact .section-label { color: var(–gold); }
+#contact .section-title { color: var(–cream); margin: 0 auto 1rem; }
+#contact .section-title em { color: var(–gold); }
+.contact-sub { color: rgba(245,240,232,0.6); font-size: 1rem; margin-bottom: 2.5rem; }
+.contact-links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+.contact-link {
+display: flex; align-items: center; gap: 0.6rem;
+padding: 0.9rem 1.8rem; border: 1px solid rgba(201,168,76,0.4);
+color: var(–cream); text-decoration: none;
+font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+transition: border-color 0.25s, background 0.25s;
+}
+.contact-link:hover { border-color: var(–gold); background: rgba(201,168,76,0.1); }
+
+/* ── FOOTER ── */
+footer {
+background: #080808; color: rgba(255,255,255,0.3);
+text-align: center; padding: 1.8rem;
+font-size: 0.78rem; letter-spacing: 0.08em;
+}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(28px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+from { opacity: 0; }
+to   { opacity: 1; }
+}
+@keyframes float {
+0%, 100% { transform: translate(-50%,-50%) translateY(0); }
+50%       { transform: translate(-50%,-50%) translateY(-18px); }
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+nav { padding: 1.2rem 2rem; }
+#hero { grid-template-columns: 1fr; }
+.hero-right { height: 300px; }
+#about { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 2rem; }
+.expertise-grid, .media-cards { grid-template-columns: 1fr; }
+.lang-grid { grid-template-columns: repeat(2,1fr); }
+section { padding: 5rem 2rem; }
+#stats { flex-wrap: wrap; gap: 2rem; padding: 2rem; }
+.stat-divider { display: none; }
+}
+</style>
+
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Deniz Çetin</h1>
-            <p class="subtitle">Eğitim Âlimi • Teknoloji Hâkimi • Bilgi Âşığı</p>
-        </header>
 
-        <div class="section">
-            <h2>🧙‍♂️ Hayat Defteri</h2>
-            <div class="highlight">
-                1968 senesinde Şereflikoçhisar'ın bereketli topraklarında dünyaya geldim. 
-                İlk ve orta tahsilimi burada ikmal ettikten sonra, 
-                <strong>Hacettepe Üniversitesi</strong>'nin nurundan istifade ile yüksek ilmi ikmal eyledim.
-            </div>
-            <p class="bio-text">
-                1987'den beridir <strong>muallimlik</strong> sanatını icra etmekteyim. 
-                <strong>İstanbul Üniversitesi</strong>'nde Siyaset Bilimi ve Kamu Yönetimi ilimlerini tahsil ediyorum.
-            </p>
-        </div>
+<div id="cursor"></div>
 
-        <div class="section">
-            <h2>⚔️ İlim Silahlarım</h2>
-            <div class="skills">
-                <div class="skill-item">
-                    <span class="skill-icon">⚡</span>
-                    <div class="skill-title">JavaScript</div>
-                    <p>Web âleminin sihirbazı</p>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-icon">🐍</span>
-                    <div class="skill-title">Python</div>
-                    <p>Veri ejderhasını evcilleştiren</p>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-icon">📜</span>
-                    <div class="skill-title">Eğitim</div>
-                    <p>30+ yıllık muallimlik tecrübesi</p>
-                </div>
-                <div class="skill-item">
-                    <span class="skill-icon">🎙️</span>
-                    <div class="skill-title">İçerik Üretimi</div>
-                    <p>Podcast & Web müellifi</p>
-                </div>
-            </div>
-        </div>
+<!-- NAV -->
 
-        <div class="section">
-            <h2>🏰 İlim Kapıları</h2>
-            <div class="links">
-                <a href="https://www.baskentekrani.com.tr" target="_blank" class="link-btn">
-                    🏛️ Başkent Ekranı Medresesi
-                </a>
-                <a href="#" target="_blank" class="link-btn">
-                    📺 YouTube İlimhanesi
-                </a>
-                <a href="#" target="_blank" class="link-btn">
-                    💾 GitHub Kodeksi
-                </a>
-            </div>
-            <div class="quote">
-                "Bilim ve teknolojiyi eğitimle birleştirerek insanlığa hizmet etmek, 
-                asıl gayemizdir."
-            </div>
-        </div>
+<nav>
+  <div class="nav-logo">Deniz <span>Çetin</span></div>
+  <div class="nav-links">
+    <a href="#about">Hakkımda</a>
+    <a href="#expertise">Uzmanlık</a>
+    <a href="#languages">Diller</a>
+    <a href="#media">Medya</a>
+    <a href="#contact">İletişim</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Eğitimci · Yazar · İçerik Üreticisi</div>
+    <h1 class="hero-name">Deniz<br><em>Çetin</em></h1>
+    <p class="hero-tagline">Bilimi ve teknolojiyi insanlığın hizmetine sunmak için eğitim alanında köprüler kuruyor; öğreten, yazan, yayın yapan biri.</p>
+    <div class="hero-actions">
+      <a href="#media" class="btn-primary">Yayınlarım</a>
+      <a href="#contact" class="btn-outline">İletişim</a>
     </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-badge">
+      <span class="hero-badge-year">Öğretmenlik</span>
+      <span class="hero-badge-num">37+</span>
+      <span class="hero-badge-label">Yıl Deneyim</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+
+<div id="stats">
+  <div class="stat-item">
+    <div class="stat-num">1968</div>
+    <div class="stat-label">Doğum Yılı</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">1987</div>
+    <div class="stat-label">Öğretmenliğe Başlangıç</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">3</div>
+    <div class="stat-label">Yabancı Dil</div>
+  </div>
+  <div class="stat-divider"></div>
+  <div class="stat-item">
+    <div class="stat-num">2+</div>
+    <div class="stat-label">Medya Platformu</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+
+<section id="about">
+  <div>
+    <div class="section-label reveal">Biyografi</div>
+    <h2 class="section-title reveal">Bilgi ile <em>Eylemi</em> Birleştiren Bir Eğitimci</h2>
+    <div class="about-text reveal">
+      <p>1968 yılında Şereflikoçhisar'da dünyaya gelen Deniz Çetin, ilk ve orta öğrenimini memleketinde tamamladıktan sonra Hacettepe Üniversitesi'nde yükseköğrenimine devam etti.</p>
+      <p>1987'den bu yana öğretmenlik yapan Çetin, şu anda İstanbul Üniversitesi'nde Siyaset Bilimi ve Kamu Yönetimi alanında eğitimini sürdürmektedir. Ankara Üniversitesi'nden Jean Monnet Avrupa Sosyal Politika Modülü sertifikasına sahiptir.</p>
+      <p>Temel hedefi; bilim ve teknolojiyi insanlığa hizmet etmek amacıyla eğitimle buluşturmak ve doğru, anlaşılır bir dille toplumsal analizler sunmaktır.</p>
+    </div>
+  </div>
+  <div class="about-highlights reveal">
+    <div class="highlight-card">
+      <h4>Eğitim</h4>
+      <p>Hacettepe Üniversitesi mezunu. İstanbul Üniversitesi'nde Siyaset Bilimi & Kamu Yönetimi lisans öğrencisi.</p>
+    </div>
+    <div class="highlight-card">
+      <h4>Sertifika</h4>
+      <p>Ankara Üniversitesi — Jean Monnet Avrupa Sosyal Politika Modülü Eğitim Sertifika Programı</p>
+    </div>
+    <div class="highlight-card">
+      <h4>Teknoloji</h4>
+      <p>JavaScript ve Python başta olmak üzere yazılım dilleriyle aktif olarak çalışmakta; teknolojiyi eğitime entegre etmektedir.</p>
+    </div>
+    <div class="highlight-card">
+      <h4>Misyon</h4>
+      <p>Bilimi ve teknolojiyi insanlığın hizmetine sunmak; net, derinlikli ve erişilebilir içerikler üretmek.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+
+<section id="expertise">
+  <div class="section-label reveal">Uzmanlık Alanları</div>
+  <h2 class="section-title reveal">Çok Yönlü Bir <em>Bilgi Birikimi</em></h2>
+  <div class="expertise-grid">
+    <div class="exp-card reveal">
+      <div class="exp-icon">🎓</div>
+      <h3>Eğitim</h3>
+      <p>37 yılı aşkın öğretmenlik deneyimiyle eğitim alanında köklü bir birikim. Pedagoji, müfredat geliştirme ve öğrenci motivasyonu konularında derinlikli yetkinlik.</p>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-icon">💻</div>
+      <h3>Teknoloji & Yazılım</h3>
+      <p>JavaScript ve Python dillerinde aktif geliştirici. Teknolojiyi eğitim süreçlerine entegre eden, dijital içerik üreten ve yazılım dünyasını yakından takip eden bir isim.</p>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-icon">🏛️</div>
+      <h3>Siyaset & Kamu Yönetimi</h3>
+      <p>İstanbul Üniversitesi'nde devam eden lisans eğitimi ve Avrupa Sosyal Politika sertifikasıyla siyaset bilimi alanında güçlü teorik altyapı.</p>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-icon">🎙️</div>
+      <h3>Podcast & Yayıncılık</h3>
+      <p>Teknoloji, eğitim ve güncel gelişmeleri işleyen düzenli podcast yayınları. Dinleyicilere net perspektif ve derinlikli analiz sunma odaklı içerik stratejisi.</p>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-icon">✍️</div>
+      <h3>Yazarlık & Analiz</h3>
+      <p>Toplumsal olayları anlaşılır bir dille ele alan analitik yazılar. Doğruluk, sadelik ve derinlik üçgeninde kaleme alınan içerikler.</p>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-icon">🌍</div>
+      <h3>Avrupa Politikaları</h3>
+      <p>Jean Monnet Programı kapsamında kazanılan Avrupa Birliği sosyal politikaları ve kurumsal yapılar konusundaki uzmanlaşmış bilgi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+
+<section id="languages">
+  <div class="section-label reveal">Dil Yetkinlikleri</div>
+  <h2 class="section-title reveal">Dört Dilde <em>İletişim</em></h2>
+  <div class="lang-grid">
+    <div class="lang-card reveal">
+      <div class="lang-flag">🇹🇷</div>
+      <div class="lang-name">Türkçe</div>
+      <span class="lang-level native">Ana Dil</span>
+    </div>
+    <div class="lang-card reveal">
+      <div class="lang-flag">🇩🇪</div>
+      <div class="lang-name">Almanca</div>
+      <span class="lang-level">Yetkin</span>
+    </div>
+    <div class="lang-card reveal">
+      <div class="lang-flag">🇬🇧</div>
+      <div class="lang-name">İngilizce</div>
+      <span class="lang-level b2">B2</span>
+    </div>
+    <div class="lang-card reveal">
+      <div class="lang-flag">🇫🇷</div>
+      <div class="lang-name">Fransızca</div>
+      <span class="lang-level">Yetkin</span>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+
+<section id="media">
+  <div class="section-label reveal">Medya & Platformlar</div>
+  <h2 class="section-title reveal">Bilgiyi <em>Paylaşmanın</em> Yolları</h2>
+  <div class="media-cards">
+    <div class="media-card reveal">
+      <div class="media-card-bg"></div>
+      <div class="media-card-icon">🌐</div>
+      <h3>Başkent Ekranı</h3>
+      <p>Eğitim, teknoloji ve güncel gelişmelere dair yazı ve analizlerin yayımlandığı dijital platform.</p>
+      <a href="https://www.baskentekrani.com.tr" target="_blank" rel="noopener">Siteyi Ziyaret Et →</a>
+    </div>
+    <div class="media-card reveal">
+      <div class="media-card-bg"></div>
+      <div class="media-card-icon">▶️</div>
+      <h3>YouTube Kanalı</h3>
+      <p>Eğitim odaklı video içeriklerin ve görsel analizlerin paylaşıldığı YouTube platformu.</p>
+      <a href="https://www.youtube.com" target="_blank" rel="noopener">Kanala Git →</a>
+    </div>
+    <div class="media-card reveal">
+      <div class="media-card-bg"></div>
+      <div class="media-card-icon">🎧</div>
+      <h3>Podcast</h3>
+      <p>Teknoloji, eğitim ve güncel gelişmeleri derinlemesine ele alan düzenli sesli yayın serisi.</p>
+      <a href="#contact">Dinle →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+  <div class="section-label">İletişim</div>
+  <h2 class="section-title">Birlikte <em>Çalışalım</em></h2>
+  <p class="contact-sub">Eğitim, içerik üretimi veya iş birliği için ulaşın.</p>
+  <div class="contact-links">
+    <a href="https://www.baskentekrani.com.tr" target="_blank" rel="noopener" class="contact-link">🌐 Başkent Ekranı</a>
+    <a href="#" class="contact-link">▶️ YouTube</a>
+    <a href="#" class="contact-link">🎙️ Podcast</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  © 2025 Deniz Çetin — Tüm hakları saklıdır.
+</footer>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top  = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('big'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Animated counters in stats
+  function animateCount(el, target, duration = 1500) {
+    let start = 0;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      el.textContent = Math.floor(progress * target);
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = target;
+    };
+    requestAnimationFrame(step);
+  }
+  const statsSection = document.getElementById('stats');
+  let counted = false;
+  new IntersectionObserver(([entry]) => {
+    if (entry.isIntersecting && !counted) {
+      counted = true;
+      document.querySelectorAll('.stat-num').forEach(el => {
+        const val = parseInt(el.textContent);
+        if (!isNaN(val)) animateCount(el, val);
+      });
+    }
+  }, { threshold: 0.5 }).observe(statsSection);
+</script>
+
 </body>
 </html>
