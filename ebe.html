@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ebeler Haftası 2025 — Başkent Ekranı</title>
+  <meta name="description" content="Başkent Ekranı olarak 21-28 Nisan Ebeler Haftası'nı kutluyor, hayatın ilk nefesine dokunan ellere minnetlerimizi sunuyoruz." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --rose:     #c0392b;
+      --peach:    #e8785a;
+      --amber:    #e8a84c;
+      --cream:    #fdf6ee;
+      --warm-bg:  #faf0e4;
+      --text:     #3a2118;
+      --muted:    #7a5544;
+      --gold:     #c8903a;
+    }
+
+```
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--warm-bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ───── HEADER ───── */
+header {
+  position: relative;
+  background: linear-gradient(135deg, #c0392b 0%, #e8785a 50%, #e8a84c 100%);
+  text-align: center;
+  padding: 4rem 1.5rem 5rem;
+  overflow: hidden;
+}
+header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(255,255,255,.12) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(255,255,255,.10) 0%, transparent 50%);
+}
+.header-badge {
+  display: inline-block;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.4);
+  backdrop-filter: blur(6px);
+  color: #fff;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: .8rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: .45rem 1.2rem;
+  border-radius: 50px;
+  margin-bottom: 1.4rem;
+  position: relative;
+  animation: fadeDown .8s ease both;
+}
+.header-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 6vw, 4.2rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  position: relative;
+  animation: fadeDown .9s .1s ease both;
+}
+.header-title span {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+  opacity: .9;
+  margin-top: .35rem;
+}
+.header-date {
+  margin-top: 1.2rem;
+  color: rgba(255,255,255,.85);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  position: relative;
+  animation: fadeDown .9s .2s ease both;
+}
+/* wave divider */
+.wave {
+  position: absolute;
+  bottom: -1px; left: 0; width: 100%;
+  line-height: 0;
+}
+.wave svg { display: block; width: 100%; height: 60px; }
+
+/* ───── HERO STRIP ───── */
+.photos {
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+  height: 280px;
+}
+.photo-slot {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+.photo-slot img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease;
+  filter: saturate(.92) brightness(.96);
+}
+.photo-slot:hover img { transform: scale(1.06); }
+.photo-slot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(58,33,24,.45));
+}
+/* Placeholders with SVG illustrations */
+.photo-slot.illo {
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(145deg, #f4c9b3, #f0a080);
+}
+.photo-slot.illo svg { width: 80px; height: 80px; opacity: .85; }
+
+/* ───── MAIN CONTENT ───── */
+main { max-width: 860px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+/* Intro card */
+.intro {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem 2.4rem;
+  margin-top: -32px;
+  position: relative;
+  box-shadow: 0 8px 40px rgba(192,57,43,.12);
+  border-top: 5px solid var(--peach);
+  animation: fadeUp .8s .3s ease both;
+}
+.intro h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  color: var(--rose);
+  margin-bottom: 1rem;
+}
+.intro p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: .9rem;
+}
+.intro p:last-child { margin-bottom: 0; }
+
+/* Stats row */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 2.5rem;
+  animation: fadeUp .8s .45s ease both;
+}
+.stat {
+  background: linear-gradient(135deg, var(--rose), var(--peach));
+  border-radius: 16px;
+  padding: 1.6rem 1.2rem;
+  text-align: center;
+  color: #fff;
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  display: block;
+  line-height: 1;
+}
+.stat-label {
+  font-size: .82rem;
+  font-weight: 600;
+  opacity: .88;
+  margin-top: .4rem;
+  letter-spacing: .04em;
+}
+
+/* Section heading */
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  color: var(--rose);
+  margin-top: 3rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(to right, var(--peach), transparent);
+  border-radius: 2px;
+}
+
+/* Role cards */
+.roles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.1rem;
+  animation: fadeUp .8s .5s ease both;
+}
+.role-card {
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 1.4rem 1.2rem;
+  border-left: 4px solid var(--amber);
+  transition: box-shadow .25s, transform .25s;
+}
+.role-card:hover {
+  box-shadow: 0 6px 24px rgba(232,120,90,.2);
+  transform: translateY(-3px);
+}
+.role-icon { font-size: 1.8rem; margin-bottom: .6rem; display: block; }
+.role-card h3 {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--rose);
+  margin-bottom: .4rem;
+}
+.role-card p { font-size: .88rem; color: var(--muted); line-height: 1.6; }
+
+/* Thank-you banner */
+.tesekkur {
+  background: linear-gradient(135deg, #3a2118 0%, #6b3020 100%);
+  border-radius: 20px;
+  padding: 3rem 2.4rem;
+  margin-top: 3rem;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  animation: fadeUp .8s .55s ease both;
+}
+.tesekkur::before {
+  content: '❤';
+  position: absolute;
+  font-size: 18rem;
+  opacity: .04;
+  top: -4rem; right: -3rem;
+  line-height: 1;
+  pointer-events: none;
+}
+.tesekkur h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-style: italic;
+  margin-bottom: 1.2rem;
+  color: var(--amber);
+}
+.tesekkur p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  opacity: .9;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.tesekkur .signature {
+  margin-top: 1.8rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--amber);
+  letter-spacing: .06em;
+}
+
+/* Quote pull */
+.quote {
+  margin: 3rem 0 0;
+  padding: 1.8rem 2rem;
+  border-left: 5px solid var(--peach);
+  background: #fff;
+  border-radius: 0 14px 14px 0;
+  animation: fadeUp .8s .6s ease both;
+}
+.quote blockquote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  color: var(--text);
+  line-height: 1.7;
+}
+.quote cite {
+  display: block;
+  margin-top: .8rem;
+  font-size: .85rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* ───── FOOTER ───── */
+footer {
+  background: linear-gradient(135deg, #c0392b, #e8785a);
+  color: #fff;
+  text-align: center;
+  padding: 2.4rem 1.5rem;
+}
+footer .footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+footer .footer-sub {
+  font-size: .88rem;
+  opacity: .82;
+  margin-top: .5rem;
+  font-weight: 300;
+}
+footer .footer-copy {
+  margin-top: 1.2rem;
+  font-size: .78rem;
+  opacity: .65;
+}
+
+/* ───── ANIMATIONS ───── */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ───── RESPONSIVE ───── */
+@media (max-width: 600px) {
+  .photos { height: 180px; }
+  .stats  { grid-template-columns: 1fr 1fr; }
+  .stats .stat:last-child { grid-column: span 2; }
+  .intro  { padding: 1.8rem 1.4rem; }
+  .tesekkur { padding: 2rem 1.4rem; }
+}
+```
+
+  </style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+
+<header>
+  <div class="header-badge">Başkent Ekranı Özel</div>
+  <h1 class="header-title">
+    Ebeler Haftası
+    <span>21 – 28 Nisan 2025</span>
+  </h1>
+  <p class="header-date">Hayatın ilk nefesine dokunan ellere…</p>
+  <div class="wave">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,30 C240,60 480,0 720,30 C960,60 1200,0 1440,30 L1440,60 L0,60 Z" fill="#faf0e4"/>
+    </svg>
+  </div>
+</header>
+
+<!-- ═══ PHOTO STRIP ═══ -->
+
+<div class="photos">
+  <!-- Illustrated placeholder 1: newborn hands -->
+  <div class="photo-slot illo" style="background:linear-gradient(145deg,#f7cfc0,#f0a488);">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="50" cy="60" rx="28" ry="22" fill="rgba(255,255,255,.4)"/>
+      <ellipse cx="38" cy="42" rx="7" ry="12" rx="7" fill="rgba(255,255,255,.5)" transform="rotate(-15 38 42)"/>
+      <ellipse cx="50" cy="38" rx="7" ry="14" fill="rgba(255,255,255,.5)"/>
+      <ellipse cx="62" cy="42" rx="7" ry="12" fill="rgba(255,255,255,.5)" transform="rotate(15 62 42)"/>
+      <path d="M32 62 Q50 78 68 62" stroke="rgba(255,255,255,.6)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <circle cx="50" cy="50" r="3" fill="rgba(255,255,255,.7)"/>
+    </svg>
+  </div>
+
+  <!-- Illustrated placeholder 2: stethoscope + heart -->
+
+  <div class="photo-slot illo" style="background:linear-gradient(145deg,#e8b87a,#d4884a);">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Heart -->
+      <path d="M50 72 C50 72 22 54 22 36 C22 27 30 21 38 24 C43 26 47 30 50 35 C53 30 57 26 62 24 C70 21 78 27 78 36 C78 54 50 72 50 72Z" fill="rgba(255,255,255,.45)"/>
+      <!-- Stethoscope circle -->
+      <circle cx="50" cy="38" r="10" stroke="rgba(255,255,255,.5)" stroke-width="2.5" fill="none"/>
+      <circle cx="50" cy="38" r="3" fill="rgba(255,255,255,.6)"/>
+    </svg>
+  </div>
+
+  <!-- Illustrated placeholder 3: mother & baby -->
+
+  <div class="photo-slot illo" style="background:linear-gradient(145deg,#f4b8a0,#e87850);">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Mother head -->
+      <circle cx="42" cy="28" r="12" fill="rgba(255,255,255,.4)"/>
+      <!-- Body -->
+      <path d="M28 75 Q30 50 42 48 Q54 46 58 50 Q64 55 62 75Z" fill="rgba(255,255,255,.35)"/>
+      <!-- Baby -->
+      <circle cx="60" cy="52" r="8" fill="rgba(255,255,255,.45)"/>
+      <!-- Arms holding -->
+      <path d="M34 56 Q48 60 58 56" stroke="rgba(255,255,255,.55)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <!-- Illustrated placeholder 4: stars / celebration -->
+
+  <div class="photo-slot illo" style="background:linear-gradient(145deg,#e8a060,#c0502a);">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="50,18 55,36 74,36 59,47 64,65 50,54 36,65 41,47 26,36 45,36" fill="rgba(255,255,255,.45)"/>
+      <circle cx="25" cy="70" r="4" fill="rgba(255,255,255,.35)"/>
+      <circle cx="75" cy="25" r="4" fill="rgba(255,255,255,.35)"/>
+      <circle cx="78" cy="72" r="6" fill="rgba(255,255,255,.25)"/>
+      <circle cx="20" cy="30" r="3" fill="rgba(255,255,255,.3)"/>
+    </svg>
+  </div>
+</div>
+
+<!-- ═══ MAIN ═══ -->
+
+<main>
+
+  <!-- Intro Card -->
+
+  <div class="intro">
+    <h2>Ebelik: Hayatın İlk Kapısını Açanlar</h2>
+    <p>
+      Ebeler; doğumun her anında, annenin yanında, bebeğin ilk nefesinde olan sağlık profesyonelleridir.
+      Yalnızca tıbbi bir destek değil; güven veren bir el, yatıştıran bir ses ve deneyimin olgunlaştırdığı
+      bir bilgidirler. Her yıl dünyaya gelen milyonlarca bebek, onların özenli bakımıyla hayata merhaba der.
+    </p>
+    <p>
+      Türkiye'de ebelik mesleği; gebelikten doğuma, doğumdan sonrasına uzanan bütünleşik bir bakım anlayışıyla
+      toplum sağlığının temel taşlarından birini oluşturmaktadır. <strong>Başkent Ekranı</strong> olarak bu özel
+      haftada, ülkemizin dört bir yanındaki tüm ebelere derin saygı ve sevgimizi sunuyoruz.
+    </p>
+  </div>
+
+  <!-- Stats -->
+
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num">40+</span>
+      <div class="stat-label">Yıllık Eğitim Geleneği</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num">7/24</span>
+      <div class="stat-label">Nöbet & Fedakârlık</div>
+    </div>
+    <div class="stat">
+      <span class="stat-num">∞</span>
+      <div class="stat-label">Hayata Dokunuş</div>
+    </div>
+  </div>
+
+  <!-- Roles Section -->
+
+  <h2 class="section-title">🌷 Ebenin Rolü</h2>
+  <div class="roles">
+    <div class="role-card">
+      <span class="role-icon">🤱</span>
+      <h3>Doğum Desteği</h3>
+      <p>Doğumun her aşamasında annenin yanında, bebeğin güvenli gelişini sağlar.</p>
+    </div>
+    <div class="role-card">
+      <span class="role-icon">📋</span>
+      <h3>Gebelik Takibi</h3>
+      <p>Antenatal dönemde risk değerlendirmesi yapar, sağlıklı bir gebelik süreci planlar.</p>
+    </div>
+    <div class="role-card">
+      <span class="role-icon">💉</span>
+      <h3>Sağlık Eğitimi</h3>
+      <p>Aile planlaması, anne sütü ve bebek bakımı konularında rehberlik eder.</p>
+    </div>
+    <div class="role-card">
+      <span class="role-icon">🏥</span>
+      <h3>Toplum Sağlığı</h3>
+      <p>Sağlık ocakları ve hastanelerde birinci basamak sağlık hizmetinin omurgasını oluşturur.</p>
+    </div>
+    <div class="role-card">
+      <span class="role-icon">🤝</span>
+      <h3>Duygusal Destek</h3>
+      <p>Annenin kaygılarını dinler, güven ortamı oluşturarak pozitif doğum deneyimi yaratır.</p>
+    </div>
+    <div class="role-card">
+      <span class="role-icon">🌙</span>
+      <h3>Gece Nöbetleri</h3>
+      <p>Gece gündüz demeden, tatil sevinmeden her an hazır ve yanında olur.</p>
+    </div>
+  </div>
+
+  <!-- Quote -->
+
+  <div class="quote">
+    <blockquote>
+      "Ebelik; bilimi, sanatı ve insanlığı birleştiren nadir mesleklerden biridir.
+      Her doğum, yeni bir umudun ve yeni bir hikâyenin başlangıcıdır."
+    </blockquote>
+    <cite>— Başkent Ekranı</cite>
+  </div>
+
+  <!-- Thank You Banner -->
+
+  <div class="tesekkur">
+    <h2>Teşekkür Ediyoruz</h2>
+    <p>
+      Soğuk ameliyathane koridorlarında, sessiz gece nöbetlerinde, her doğumun heyecanında ve
+      her annenin gözündeki yaşta yanlarında olan ebelere; sabırlarınız, bilginiz ve sonsuz
+      şefkatiniz için minnettarız.
+    </p>
+    <p style="margin-top:.9rem">
+      Elleri hayata dokunan, kalpleri insanlıkla yoğrulan tüm ebeleri <strong>Ebeler Haftası</strong>'nda
+      saygı, sevgi ve takdirle selamlıyoruz.
+    </p>
+    <div class="signature">❤ Başkent Ekranı Ailesi</div>
+  </div>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+
+<footer>
+  <div class="footer-brand">Başkent Ekranı</div>
+  <div class="footer-sub">21 – 28 Nisan Ebeler Haftası Özel Yayını</div>
+  <div class="footer-copy">© 2025 Başkent Ekranı · Tüm hakları saklıdır.</div>
+</footer>
+
+</body>
+</html>
